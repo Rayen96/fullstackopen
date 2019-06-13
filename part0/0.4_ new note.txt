@@ -1,0 +1,16 @@
+browser->server: HTTP POST https:fullstack-exampleapp.herokuapp.com/new_note_spa
+server->browser: response 302 /notes
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+server-> browser: notes.html
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+server->browser: main.css
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+server->browser: main.js
+
+note over browser:
+    browser starts executing js-code
+    that requests JSON data from the server
+end note over
+
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+server->browser: data.json
